@@ -1,0 +1,44 @@
+-- Game: https://www.roblox.com/games/4581966615
+--[[
+    Bugs: 
+        
+
+    Caution:
+        1. You will get kicked if you rapid fire for long enough. If you want to remove rapid fire then make:
+            local changeVals = {
+                Firemode = "Auto",
+                MaxAmmo = math.huge,
+                Firerate = 2000,
+                Range = 2000000,
+                ReloadTime = 0.1,
+                Accuracy = 0.1,
+                Speed = 250,
+            }
+        into this:
+            local changeVals = {
+                MaxAmmo = math.huge,
+                Range = 2000000,
+                ReloadTime = 0.1,
+                Accuracy = 0.1,
+                Speed = 250,
+            }
+
+    Unsure:
+        1. Not sure if Firerate and Firemode even work. Removed for now. You can add it back in if you want.
+
+    Side Notes:
+        1. Infinite Stamina works weirdly. 3ds pls fix Connection.Function!!!!
+        2. Silent Aim works, the hit marker just doesn't appear
+]]
+
+-- // Valiant ENV
+loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Stefanuk12/ROBLOX/master/Universal/ValiantENV.lua"))()
+
+-- // Vars
+local UIS = game:GetService("UserInputService")
+local RenderStepped = RunService.RenderStepped
+local Heartbeat = RunService.Heartbeat
+local LocalPlayer = Players.LocalPlayer
+local Character = LocalPlayer.Character or LocalPlayer.CharacterAdded.Wait(LocalPlayer.CharacterAdded)
+local Backpack = LocalPlayer.Backpack
+local Humanoid = Character.WaitForChild(
